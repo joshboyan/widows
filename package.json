@@ -1,0 +1,19 @@
+{
+  "name": "gulp-widows",
+  "version": "1.0.0",
+  "description": "Replaces last space in speci\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D(/s) in specified HTML tags text.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshboyan/widows.git"
+  },
+  "author": "Josh Boyan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshboyan/widows/issues"
+  },
+  "homepage": "https://github.com/joshboyan/widows#readme"
+}
