@@ -12,26 +12,29 @@
     <p>consectetur adipisicing elit. Non inventore adipisci sunt nam explicabo corporis, consequatur fuga labore, error provident repellat officiis suscipit obcaecati, voluptate, a fugit repellendus! Tempore, expedita!</p>
     <p>Non inventore adipisci sunt nam explicabo corporis, consequatur fuga labore, error provident repellat officiis suscipit obcaecati, voluptate, a fugit repellendus! Tempore, expedita!</p>
     <p>Eat a dick you smelly pig!</p>
-    <p>Coding is som much more fun than business homework!</p>
+    <p>Coding is so much more fun than business homework!</p>
     <ul>
       <li>Do list items work as well?</li>
       <li>Dunno, do they?</li>
       <li>Shit if I know!</li>
     </ul>
+    <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae alias sed quis quae odio adipisci repudiandae, maiores vero nihil quia aspernatur, nesciunt quibusdam fugit velit eius nisi quaerat ea modi!</blockquote>
+    <blockquote>consectetur adipisicing elit. Molestiae alias sed quis quae odio adipisci repudiandae, maiores vero nihil quia aspernatur, nesciunt quibusdam fugit velit eius nisi quaerat ea modi!</blockquote>
+    <blockquote>Molestiae alias sed quis quae odio adipisci repudiandae, maiores vero nihil quia aspernatur, nesciunt quibusdam fugit velit eius nisi quaerat ea modi!</blockquote>
     <script>
 
     function widows() {
-      //console.log(arguments);
-      
+      //console.log(arguments);      
       //Array to hold all the text from inside the targeted tags
       var pageText = [];
-      var arrayCount = 1;
+      //Loop throght each of the HTML elements passed to the fution as arguments
       for(j = 0; j < arguments.length; j++) {
+      //Clear array for each html elements text
+      pageText = [];
       //Variable containing all the targeted tags
       var elements = document.body.getElementsByTagName(arguments[j]);
-      //console.log(arguments[j]);
-      //Loop through each of the elements
-      arrayCount++
+      console.log(arguments[j]);
+      //Loop through each of the element
       for(i = 0; i < elements.length; i++) {
        var current = elements[i];
        // Check the element has no children && that it is not empty
@@ -43,9 +46,9 @@
       //console.log(pageText);
       //Loop through the text from each element
       var count = 1;
+//This i variable needs to know where to start based on what tag we are at. 0 for the first element, 0 + firstElement.length for the second etc.
       for(i = 0; i < pageText.length; i++) {
-      var tag = pageText[i];
-      console.log(tag);
+      var tag = pageText[i];      
       //Split each element into a subarray of words
       tag = tag.split(' ');
       //console.log(tag);
@@ -78,7 +81,7 @@
     }
   }
 
-    widows(...['p', 'li']);
+    widows(...['p', 'li', 'blockquote']);
     
 
     </script>
