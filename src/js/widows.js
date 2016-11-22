@@ -3,101 +3,99 @@ function widows() {
         //Array to hold all the text from inside the targeted tags
         var pageText = [];
         //Loop throght each of the HTML elements passed to the function as arguments
-        for (let j = 0; j < arguments.length; j++) {
+        for (let arg of arguments) {
             //Test that arguments are valid HTML tags that generally contain text log error message message if not
-            if (arguments[j] == "a" ||
-                arguments[j] == "article" ||
-                arguments[j] == "aside" ||
-                arguments[j] == "bio" ||
-                arguments[j] == "blockquote" ||
-                arguments[j] == "body" ||
-                arguments[j] == "code" ||
-                arguments[j] == "datalist" ||
-                arguments[j] == "dd" ||
-                arguments[j] == "details" ||
-                arguments[j] == "del" ||
-                arguments[j] == "dialog" ||
-                arguments[j] == "div" ||
-                arguments[j] == "em" ||
-                arguments[j] == "figcaption" ||
-                arguments[j] == "form" ||
-                arguments[j] == "h1" ||
-                arguments[j] == "h2" ||
-                arguments[j] == "h3" ||
-                arguments[j] == "h4" ||
-                arguments[j] == "h5" ||
-                arguments[j] == "h6" ||
-                arguments[j] == "header" ||
-                arguments[j] == "label" ||
-                arguments[j] == "legend" ||
-                arguments[j] == "li" ||
-                arguments[j] == "link" ||
-                arguments[j] == "menu" ||
-                arguments[j] == "menuitem" ||
-                arguments[j] == "strong" ||
-                arguments[j] == "table" ||
-                arguments[j] == "td" ||
-                arguments[j] == "thead" ||
-                arguments[j] == "var" ||
-                arguments[j] == "p" ||
-                arguments[j] == "param" ||
-                arguments[j] == "q" ||
-                arguments[j] == "samp" ||
-                arguments[j] == "section" ||
-                arguments[j] == "source" ||
-                arguments[j] == "span" ||
-                arguments[j] == "strike") {
+            if (arg == "a" ||
+                arg == "article" ||
+                arg == "aside" ||
+                arg == "bio" ||
+                arg == "blockquote" ||
+                arg == "body" ||
+                arg == "code" ||
+                arg == "datalist" ||
+                arg == "dd" ||
+                arg == "details" ||
+                arg == "del" ||
+                arg == "dialog" ||
+                arg == "div" ||
+                arg == "em" ||
+                arg == "figcaption" ||
+                arg == "form" ||
+                arg == "h1" ||
+                arg == "h2" ||
+                arg == "h3" ||
+                arg == "h4" ||
+                arg == "h5" ||
+                arg == "h6" ||
+                arg == "header" ||
+                arg == "label" ||
+                arg == "legend" ||
+                arg == "li" ||
+                arg == "link" ||
+                arg == "menu" ||
+                arg == "menuitem" ||
+                arg == "strong" ||
+                arg == "table" ||
+                arg == "td" ||
+                arg == "thead" ||
+                arg == "var" ||
+                arg == "p" ||
+                arg == "param" ||
+                arg == "q" ||
+                arg == "samp" ||
+                arg == "section" ||
+                arg == "source" ||
+                arg == "span" ||
+                arg == "strike") {
                 //Clear array for each html elements text
                 pageText = [];
                 //Variable containing all the targeted tags
-                let elements = document.body.getElementsByTagName(arguments[j]);
-                console.log(arguments[j]);
+                let elements = document.body.getElementsByTagName(arg);
+                console.log(arg);
                 //Loop through each of the element
-                for (let i = 0; i < elements.length; i++) {
-                    let current = elements[i];
+                for (let elem of elements) {
+            
                     // Check the element has no children && that it is not empty
-                    if (current.children.length === 0 && current.textContent.replace(/ |\n/g, '') !== '') {
+                    if (elem.children.length === 0 && elem.textContent.replace(/ |\n/g, '') !== '') {
                         //Push the text from each tag to the storing array
-                        pageText.push(current.textContent);
+                        pageText.push(elem.textContent);
                     }
                 }
                 //console.log(pageText);
                 //Loop through the text from each element
                 let count = 1;
                 //This i variable needs to know where to start based on what tag we are at. 0 for the first element, 0 + firstElement.length for the second etc.
-                for (let i = 0; i < pageText.length; i++) {
-                    let tag = pageText[i];
+                for (let elem of pageText) {
+    
                     //Split each element into a subarray of words
-                    tag = tag.split(' ');
-                    //console.log(tag);
+                    elem = elem.split(' ');
+                    //console.log(elem);
                     //Create an array with a nonbreakng space
                     let widow = ['&nbsp;'];
                     //console.log(widow);
                     //Push last word from tag to after &nbsp;
-                    widow.push(tag.pop());
+                    widow.push(elem.pop());
                     //console.log(widow);
                     //Create and array with a space
                     let preWidow = [' '];
                     //Push second to last word from tag to after the space
-                    preWidow.push(tag.pop());
+                    preWidow.push(elem.pop());
                     //console.log(preWidow);
                     //Create string from arrays containing space/second to last word and &nbsp;/last word
                     widow = preWidow.concat(widow).join('');
                     //console.log(widow);
                     //create string from the rest of the words in the tag
-                    tag = tag.join(' ');
-                    //console.log(tag);
-                    //Create string completed widowless string from substrings
-                    let merged = tag.concat(widow);
-                    //console.log(arguments[j]);
+                    elem = elem.join(' ').concat(widow);
+                    //console.log(elem);    
+                    //console.log(arg);
                     //insert edited string back into DOM 
-                    console.log(arguments[j] + ':nth-of-type(' + count + ')');
-                    document.querySelector(arguments[j] + ':nth-of-type(' + count + ')').innerHTML = merged;
+                    //console.log(arg + ':nth-of-type(' + count + ')');
+                    document.querySelector(arg + ':nth-of-type(' + count + ')').innerHTML = elem;
                     count++;
                     //console.log(count);
                 }
             } else {
-                console.log("gulp-widows: *** " + arguments[j] + " is not a valid HTML tag. All other tags have had widows removed. Check your gulpfile.js to correct the tag name. ***");
+                alert(`gulp-widows: *** ${arg} is not a valid HTML tag. All other tags have had widows removed. Check your gulpfile.js to correct the tag name. ***`);
             }
         }
     }
