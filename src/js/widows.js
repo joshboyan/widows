@@ -1,7 +1,7 @@
 function widows() {
         console.log(arguments);
         //Array to hold all the text from inside the targeted tags
-        var pageText = [];
+        let pageText = [];
         //Loop throght each of the HTML elements passed to the function as arguments
         for (let arg of arguments) {
             //Test that arguments are valid HTML tags that generally contain text log error message message if not
@@ -53,8 +53,7 @@ function widows() {
                 let elements = document.body.getElementsByTagName(arg);
                 console.log(arg);
                 //Loop through each of the element
-                for (let elem of elements) {
-            
+                for (let elem of elements) {            
                     // Check the element has no children && that it is not empty
                     if (elem.children.length === 0 && elem.textContent.replace(/ |\n/g, '') !== '') {
                         //Push the text from each tag to the storing array

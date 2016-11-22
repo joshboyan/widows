@@ -29,7 +29,6 @@ function widows() {
                     for (var _iterator2 = elements[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                         var elem = _step2.value;
 
-
                         // Check the element has no children && that it is not empty
                         if (elem.children.length === 0 && elem.textContent.replace(/ |\n/g, '') !== '') {
                             //Push the text from each tag to the storing array
