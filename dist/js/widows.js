@@ -1,27 +1,29 @@
 'use strict';
 
 (function widows() {
-    //console.log(arguments);
+    var tags = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['article', 'aside', 'blockquote', 'p', 'li', 'figcaption'];
+
+    //console.log(tags);
     //Array to hold all the text from inside the targeted tags
     var pageText = [];
     //Array of HTML5 elements that accept text
-    var ACCEPTABLE_ELEMENTS = ['article', 'aside', 'bio', 'blockquote', 'body', 'code', 'datalist', 'dd', 'details', 'del', 'dialog', 'div', 'em', 'figcation', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'label', 'legend', 'li', 'link', 'menu', 'menuitem', 'strong', 'table', 'td', 'thead', 'var', 'p', 'param', 'q', 'samp', 'section', 'source', 'span', 'strike'];
-    //Loop throght each of the HTML elements passed to the function as arguments
+    var ACCEPTABLE_ELEMENTS = ['article', 'aside', 'bio', 'blockquote', 'body', 'code', 'datalist', 'dd', 'details', 'del', 'dialog', 'div', 'em', 'figcaption', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'label', 'legend', 'li', 'link', 'menu', 'menuitem', 'strong', 'table', 'td', 'thead', 'var', 'p', 'param', 'q', 'samp', 'section', 'source', 'span', 'strike'];
+    //Loop throght each of the HTML elements passed to the function as taguments
     var _iteratorNormalCompletion = true;
     var _didIteratorError = false;
     var _iteratorError = undefined;
 
     try {
-        for (var _iterator = arguments[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var arg = _step.value;
+        for (var _iterator = tags[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var tag = _step.value;
 
-            //Test that arguments are valid HTML tags that generally contain text log error message message if not
-            if (ACCEPTABLE_ELEMENTS.indexOf(arg) > -1) {
+            //Test that taguments are valid HTML tags that generally contain text log error message message if not
+            if (ACCEPTABLE_ELEMENTS.indexOf(tag) > -1) {
                 //Clear array for each html elements text
                 pageText = [];
                 //Variable containing all the targeted tags
-                var elements = document.body.getElementsByTagName(arg);
-                //console.log(arg);
+                var elements = document.body.getElementsByTagName(tag);
+                //console.log(tag);
                 //Loop through each of the element
                 var _iteratorNormalCompletion2 = true;
                 var _didIteratorError2 = false;
@@ -85,10 +87,10 @@
                         //create string from the rest of the words in the tag
                         _elem = _elem.join(' ').concat(widow);
                         //console.log(elem);    
-                        //console.log(arg);
+                        //console.log(tag);
                         //insert edited string back into DOM 
-                        //console.log(arg + ':nth-of-type(' + count + ')');
-                        document.querySelector(arg + ':nth-of-type(' + count + ')').innerHTML = _elem;
+                        //console.log(tag + ':nth-of-type(' + count + ')');
+                        document.querySelector(tag + ':nth-of-type(' + count + ')').innerHTML = _elem;
                         count++;
                         //console.log(count);
                     }
@@ -107,7 +109,7 @@
                     }
                 }
             } else {
-                alert('gulp-widows: *** ' + arg + ' is not a valid HTML tag. All other tags have had widows removed. Check your gulpfile.js to correct the tag name. ***');
+                alert('gulp-widows: *** ' + tag + ' is not a valid HTML tag. All other tags have had widows removed. Check your gulpfile.js to correct the tag name. ***');
             }
         }
     } catch (err) {
@@ -124,4 +126,4 @@
             }
         }
     }
-}).apply(undefined, ['p', 'li', 'blockquote', 'duh']);
+})();
