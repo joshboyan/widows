@@ -1,35 +1,9 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Widows JS</title>
-    <link rel="stylesheet" href="css/app.css">
-</head>
-
-<body>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non inventore adipisci sunt nam explicabo corporis, consequatur fuga labore, error provident repellat officiis suscipit obcaecati, voluptate, a fugit repellendus! Tempore, expedita!</p>
-    <p>consectetur adipisicing elit. Non inventore adipisci sunt nam explicabo corporis, consequatur fuga labore, error provident repellat officiis suscipit obcaecati, voluptate, a fugit repellendus! Tempore, expedita!</p>
-    <p>Non inventore adipisci sunt nam explicabo corporis, consequatur fuga labore, error provident repellat officiis suscipit obcaecati, voluptate, a fugit repellendus! Tempore, expedita!</p>
-    <p>Eat a dick you smelly pig!</p>
-    <p>Coding is so much more fun than business homework!</p>
-    <ul>
-        <li>Do list items work as well?</li>
-        <li>Dunno, do they?</li>
-        <li>Shit if I know!</li>
-    </ul>
-    <blockquote>ipsum dolor sit amet, consectetur adipisicing elit. Molestiae alias sed quis quae odio adipisci repudiandae, maiores vero nihil quia aspernatur, nesciunt quibusdam fugit velit eius nisi quaerat ea modi!</blockquote>
-    <blockquote>adipisicing elit. Molestiae alias sed quis quae odio adipisci repudiandae, maiores vero nihil quia aspernatur, nesciunt quibusdam fugit velit eius nisi quaerat ea modi!</blockquote>
-    <blockquote>alias sed quis quae odio adipisci repudiandae, maiores vero nihil quia aspernatur, nesciunt quibusdam fugit velit eius nisi quaerat ea modi!</blockquote>
-    <script>
-    function widows() {
+function widows() {
         console.log(arguments);
         //Array to hold all the text from inside the targeted tags
         var pageText = [];
         //Loop throght each of the HTML elements passed to the function as arguments
-        for (j = 0; j < arguments.length; j++) {
+        for (let j = 0; j < arguments.length; j++) {
             //Test that arguments are valid HTML tags that generally contain text log error message message if not
             if (arguments[j] == "a" ||
                 arguments[j] == "article" ||
@@ -129,7 +103,3 @@
     }
     // Function call with html tags to change text in
     widows(...['p', 'li', 'blockquote', 'duh']);
-    </script>
-</body>
-
-</html>

@@ -4,21 +4,21 @@ var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 
 // Consts
-const PLUGIN_NAME = 'gulp-widows';
+const PLUGIN_NAME = 'gulpWidows';
 
-function prefixStream(prefixText) {
+function gulpWidows(elements) {
   var stream = through();
   stream.write(prefixText);
   return stream;
 }
 
 // Plugin level function(dealing with files)
-function gulpPrefixer(prefixText) {
+function gulpWidows(prefixText) {
 
   if (!prefixText) {
     throw new PluginError(PLUGIN_NAME, 'Missing prefix text!');
   }
-  prefixText = new Buffer(prefixText); // allocate ahead of time
+  gulpWidows = new Buffer(gulpWidows); // allocate ahead of time
 
   // Creating a stream through which each file will pass
   return through.obj(function(file, enc, cb) {
@@ -30,7 +30,12 @@ function gulpPrefixer(prefixText) {
       file.contents = Buffer.concat([prefixText, file.contents]);
     }
     if (file.isStream()) {
-      file.contents = file.contents.pipe(prefixStream(prefixText));
+      // define the streamer that will transform the content
+      var streamer = prefixStream(prefixText);
+      // catch errors from the streamer and emit a gulp plugin error
+      streamer.on('error', this.emit.bind(this, 'error'));
+      // start the transformation
+      file.contents = file.contents.pipe(streamer);
     }
 
     cb(null, file);
@@ -40,4 +45,4 @@ function gulpPrefixer(prefixText) {
 }
 
 // Exporting the plugin main function
-module.exports = gulpPrefixer;
+module.exports = gulpWidows;

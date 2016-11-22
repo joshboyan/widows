@@ -1,7 +1,7 @@
 {
   "name": "gulp-widows",
   "version": "1.0.0",
-  "description": "Replaces last space in speci\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D(/s) in specified HTML tags text.",
+  "description": "Replaces last space(/s) in specified HTML tags text.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/joshboyan/widows/issues"
   },
-  "homepage": "https://github.com/joshboyan/widows#readme"
+  "homepage": "https://github.com/joshboyan/widows#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-util": "^3.0.7",
+    "through2": "^2.0.1"
+  }
 }
