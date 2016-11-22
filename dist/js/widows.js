@@ -1,6 +1,6 @@
 "use strict";
 
-function widows() {
+(function widows() {
     console.log(arguments);
     //Array to hold all the text from inside the targeted tags
     var pageText = [];
@@ -122,6 +122,4 @@ function widows() {
             }
         }
     }
-}
-// Function call with html tags to change text in
-widows.apply(undefined, ['p', 'li', 'blockquote', 'duh']);
+}).apply(undefined, ['p', 'li', 'blockquote', 'duh']);

@@ -1,4 +1,4 @@
-function widows() {
+(function widows() {
         console.log(arguments);
         //Array to hold all the text from inside the targeted tags
         let pageText = [];
@@ -97,6 +97,5 @@ function widows() {
                 alert(`gulp-widows: *** ${arg} is not a valid HTML tag. All other tags have had widows removed. Check your gulpfile.js to correct the tag name. ***`);
             }
         }
-    }
-    // Function call with html tags to change text in
-    widows(...['p', 'li', 'blockquote', 'duh']);
+    })(...['p', 'li', 'blockquote', 'duh']);
+   
