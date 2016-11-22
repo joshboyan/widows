@@ -1,57 +1,18 @@
 (function widows() {
-        console.log(arguments);
+        //console.log(arguments);
         //Array to hold all the text from inside the targeted tags
         let pageText = [];
+        //Array of HTML5 elements that accept text
+        const ACCEPTABLE_ELEMENTS = ['article', 'aside', 'bio', 'blockquote', 'body', 'code', 'datalist', 'dd', 'details', 'del', 'dialog', 'div', 'em', 'figcation', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'label', 'legend', 'li', 'link', 'menu', 'menuitem', 'strong', 'table', 'td', 'thead', 'var', 'p', 'param', 'q','samp', 'section', 'source', 'span', 'strike'];
         //Loop throght each of the HTML elements passed to the function as arguments
         for (let arg of arguments) {
             //Test that arguments are valid HTML tags that generally contain text log error message message if not
-            if (arg == "a" ||
-                arg == "article" ||
-                arg == "aside" ||
-                arg == "bio" ||
-                arg == "blockquote" ||
-                arg == "body" ||
-                arg == "code" ||
-                arg == "datalist" ||
-                arg == "dd" ||
-                arg == "details" ||
-                arg == "del" ||
-                arg == "dialog" ||
-                arg == "div" ||
-                arg == "em" ||
-                arg == "figcaption" ||
-                arg == "form" ||
-                arg == "h1" ||
-                arg == "h2" ||
-                arg == "h3" ||
-                arg == "h4" ||
-                arg == "h5" ||
-                arg == "h6" ||
-                arg == "header" ||
-                arg == "label" ||
-                arg == "legend" ||
-                arg == "li" ||
-                arg == "link" ||
-                arg == "menu" ||
-                arg == "menuitem" ||
-                arg == "strong" ||
-                arg == "table" ||
-                arg == "td" ||
-                arg == "thead" ||
-                arg == "var" ||
-                arg == "p" ||
-                arg == "param" ||
-                arg == "q" ||
-                arg == "samp" ||
-                arg == "section" ||
-                arg == "source" ||
-                arg == "span" ||
-                arg == "strike") {
+            if (ACCEPTABLE_ELEMENTS.indexOf(arg) > -1) {
                 //Clear array for each html elements text
                 pageText = [];
                 //Variable containing all the targeted tags
                 let elements = document.body.getElementsByTagName(arg);
-                console.log(arg);
+                //console.log(arg);
                 //Loop through each of the element
                 for (let elem of elements) {            
                     // Check the element has no children && that it is not empty
