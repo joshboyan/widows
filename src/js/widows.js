@@ -50,11 +50,11 @@ function widows() {
                 //Clear array for each html elements text
                 pageText = [];
                 //Variable containing all the targeted tags
-                var elements = document.body.getElementsByTagName(arguments[j]);
+                let elements = document.body.getElementsByTagName(arguments[j]);
                 console.log(arguments[j]);
                 //Loop through each of the element
-                for (i = 0; i < elements.length; i++) {
-                    var current = elements[i];
+                for (let i = 0; i < elements.length; i++) {
+                    let current = elements[i];
                     // Check the element has no children && that it is not empty
                     if (current.children.length === 0 && current.textContent.replace(/ |\n/g, '') !== '') {
                         //Push the text from each tag to the storing array
@@ -63,21 +63,21 @@ function widows() {
                 }
                 //console.log(pageText);
                 //Loop through the text from each element
-                var count = 1;
+                let count = 1;
                 //This i variable needs to know where to start based on what tag we are at. 0 for the first element, 0 + firstElement.length for the second etc.
-                for (i = 0; i < pageText.length; i++) {
-                    var tag = pageText[i];
+                for (let i = 0; i < pageText.length; i++) {
+                    let tag = pageText[i];
                     //Split each element into a subarray of words
                     tag = tag.split(' ');
                     //console.log(tag);
                     //Create an array with a nonbreakng space
-                    var widow = ['&nbsp;'];
+                    let widow = ['&nbsp;'];
                     //console.log(widow);
                     //Push last word from tag to after &nbsp;
                     widow.push(tag.pop());
                     //console.log(widow);
                     //Create and array with a space
-                    var preWidow = [' '];
+                    let preWidow = [' '];
                     //Push second to last word from tag to after the space
                     preWidow.push(tag.pop());
                     //console.log(preWidow);
@@ -88,7 +88,7 @@ function widows() {
                     tag = tag.join(' ');
                     //console.log(tag);
                     //Create string completed widowless string from substrings
-                    var merged = tag.concat(widow);
+                    let merged = tag.concat(widow);
                     //console.log(arguments[j]);
                     //insert edited string back into DOM 
                     console.log(arguments[j] + ':nth-of-type(' + count + ')');

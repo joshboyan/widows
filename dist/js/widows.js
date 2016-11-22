@@ -14,7 +14,7 @@ function widows() {
             var elements = document.body.getElementsByTagName(arguments[j]);
             console.log(arguments[j]);
             //Loop through each of the element
-            for (i = 0; i < elements.length; i++) {
+            for (var i = 0; i < elements.length; i++) {
                 var current = elements[i];
                 // Check the element has no children && that it is not empty
                 if (current.children.length === 0 && current.textContent.replace(/ |\n/g, '') !== '') {
@@ -26,8 +26,8 @@ function widows() {
             //Loop through the text from each element
             var count = 1;
             //This i variable needs to know where to start based on what tag we are at. 0 for the first element, 0 + firstElement.length for the second etc.
-            for (i = 0; i < pageText.length; i++) {
-                var tag = pageText[i];
+            for (var _i = 0; _i < pageText.length; _i++) {
+                var tag = pageText[_i];
                 //Split each element into a subarray of words
                 tag = tag.split(' ');
                 //console.log(tag);
